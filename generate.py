@@ -34,7 +34,12 @@ def calc_avg_color(img, transparency_color=(255, 255, 255), start_coords=(0, 0),
 
     for y in range(start_coords[0], stop_coords[0]):
         for x in range(start_coords[1], stop_coords[1]):
-            r, g, b, a = img.getpixel((x, y))
+            try:
+                r, g, b, a = img.getpixel((x, y))
+            except IndexError:
+                # deals with the case where the input image size is not a multiple of the icon
+                # image size.
+                continue
             if a == 0:
                 r, g, b = transparency_color
             else:
