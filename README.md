@@ -1,5 +1,8 @@
 # icon2png
 
+<img width="857" alt="Screenshot 2024-02-04 at 6 37 42 PM" src="https://github.com/CalderWhite/icon2png/assets/15067287/224e2d5c-7a15-498d-8b9f-5c2dd516bf88">
+
+
 Given an arbitrary set of icons, generate a recreation of any PNG/JPEG using ONLY those icons.
 
 This is what I used to create my submission to the [wabi-sabi-thon](https://lu.ma/wst).
