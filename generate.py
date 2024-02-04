@@ -85,6 +85,8 @@ def gen_paste(args):
     )
 
     # NOTE: O(n) scan, very slow. Probably a better way to approximate this in better time complexity
+    # NOTE: One idea: use greyscale as an approximation for true color match. Then only look within
+    #       the closest greyscale bucket for the true match by all color channels.
     res_icon_fn = None
     best_diff = float('inf')
     ir, ig, ib = avg_color
