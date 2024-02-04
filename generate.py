@@ -59,7 +59,7 @@ def load_icon(args):
     path, image_fn = args
     image_path = f'{path}/{image_fn}'
     image = Image.open(image_path)
-    avg_color = calc_avg_color(image)
+    avg_color = calc_avg_color(image, transparency_color=(0,0,0))
     return (avg_color, image_fn)
 
 
@@ -113,7 +113,7 @@ def generate_image(icon_dir, in_path, out_path):
     for res in tqdm(p.imap_unordered(gen_paste, args), total=len(args)):
         pastes.append(res)
 
-    output_image = Image.new('RGBA', (COLS, ROWS), (255, 255, 255, 255))
+    output_image = Image.new('RGBA', (COLS, ROWS), (0,0,0,255))
     for image_path, x, y in pastes:
         with Image.open(f'{icon_dir}/{image_path}') as img:
             output_image.paste(img, (x, y), img)
